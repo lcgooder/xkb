@@ -8,15 +8,30 @@ xkb_symbols "pc105" {
 
     // The following keys are common to all layouts.
     key <BKSL> {	[ backslash,	bar	]	};
-    key <SPCE> {	[ 	 space		]	};
+    // FN + SPACE -> Shift + Insert (for paste)
+    key <SPCE> 	{
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [ space,	space,	NoSymbol	],
+        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift)	]
+    };
 
     include "srvr_ctrl(fkey2vt)"
     include "pc(editing)"
     include "keypad(x11)"
 
-    key <BKSP> {	[ BackSpace, BackSpace	]	};
+    // FN + BKSP -> Delete
+    key <BKSP> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [ BackSpace, BackSpace, Delete ]
+    };
 
-    key  <TAB> {	[ Tab,	ISO_Left_Tab	]	};
+    // FN + TAB -> Ctrl + Insert (for copy)
+    key  <TAB> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [ Tab,	ISO_Left_Tab,	NoSymbol	],
+        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Control)	]
+    };
+
     key <RTRN> {	[ Return		]	};
 
     key <CAPS> {	[ Caps_Lock		]	};
