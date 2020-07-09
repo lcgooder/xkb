@@ -32,6 +32,20 @@ partial default xkb_types "default" {
 	level_name[Level4] = "Shift Alt";
     };
 
+    type "THREE_LEVEL_ALPHABETIC" {
+	modifiers = Shift+Lock+LevelThree;
+	map[None] = Level1;
+	map[Shift] = Level2;
+	map[Lock]  = Level2;
+	map[LevelThree] = Level3;
+	map[Shift+LevelThree] = Level3;
+	map[Lock+LevelThree] =  Level3;
+	map[Lock+Shift+LevelThree] =  Level3;
+	level_name[Level1] = "Base";
+	level_name[Level2] = "Shift";
+	level_name[Level3] = "PN";
+    };
+
     type "FOUR_LEVEL_SEMIALPHABETIC" {
 	modifiers = Shift+Lock+LevelThree;
 	map[None] = Level1;
