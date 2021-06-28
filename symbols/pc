@@ -11,8 +11,8 @@ xkb_symbols "pc105" {
     // FN + SPACE -> Shift + Insert (for paste)
     key <SPCE> 	{
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ space,	space,	NoSymbol	],
-        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift)	]
+        symbols[Group1]= [ space,	space,	NoSymbol,	NoSymbol],
+        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Shift)	]
     };
 
     include "srvr_ctrl(fkey2vt)"
@@ -22,14 +22,14 @@ xkb_symbols "pc105" {
     // FN + BKSP -> Delete
     key <BKSP> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ BackSpace, BackSpace, Delete ]
+        symbols[Group1]= [ BackSpace, BackSpace, Delete, Delete ]
     };
 
     // FN + TAB -> Ctrl + Insert (for copy)
     key  <TAB> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [ Tab,	ISO_Left_Tab,	NoSymbol	],
-        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Control)	]
+        symbols[Group1]= [ Tab,	ISO_Left_Tab,	NoSymbol,	NoSymbol	],
+        actions[Group1]= [ NoAction(),	NoAction(),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Control),	RedirectKey(key=<INS>, clearmods=Mod5, mods=Control)	]
     };
 
     key <RTRN> {	[ Return		]	};
